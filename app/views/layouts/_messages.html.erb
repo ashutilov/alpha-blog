@@ -1,7 +1,8 @@
 <div class="container" >
   <% flash.each do |name, msg| %>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+    <% alert_class = name.to_sym == :alert ? "danger" : "success" %>
+    <div class="alert alert-<%= alert_class %> alert-dismissible fade show" role="alert">
+      <%= msg %>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   <% end %>
